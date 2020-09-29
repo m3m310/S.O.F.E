@@ -1,18 +1,18 @@
 //
-//  ForgetPasswordViewController.swift
+//  OrderViewController.swift
 //  S.O.F.E
 //
-//  Created by Meme Mhd on 16/09/2020.
+//  Created by Meme Mhd on 20/09/2020.
 //  Copyright © 2020 S.O.F.E. All rights reserved.
 //
 
 import UIKit
 
-class ForgetPasswordViewController: UIViewController {
+class OrderViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+
         // Do any additional setup after loading the view.
     }
     

@@ -89,7 +89,7 @@ class RegisterViewController: UIViewController {
     }()
     private let phoneNumberTextField: UITextField = {
         let phoneNumberTextField = UITextField()
-        phoneNumberTextField.placeholder = "Phone Number"
+        phoneNumberTextField.placeholder = "Phone Number +966"
         phoneNumberTextField.leftViewMode = .always
         phoneNumberTextField.layer.shadowColor = UIColor.darkGray.cgColor
         phoneNumberTextField.layer.shadowOffset = CGSize(width: 0, height: 1)
@@ -240,27 +240,23 @@ extension RegisterViewController{
             let phoneNumber = phoneNumberTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
             let firstName = firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
             let lastName = lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !city.isEmpty, !district.isEmpty, !phoneNumber.isEmpty, !firstName.isEmpty, !lastName.isEmpty, !email.isEmpty, !password.isEmpty else{
-            return errorMesseges(title: "Error Messege", messege: "Please fill the requierd fields don't left them empty")
+            return errorMesseges(title: "Empty Fields", messege: "Please fill the requierd fields don't left them empty")
         }
         guard Extentions.isPasswordViald(password) else{
-            return  errorMesseges(title: "Error Messege", messege: "please make sure your password is at least 8 charcters, and contains a special charcters and numbers")
+            return  errorMesseges(title: "Strong Password", messege: "please make sure your password is at least 8 charcters, and contains a special charcters and numbers")
         }
         guard Extentions.isValidEmail(email) else{
-           return  errorMesseges(title: "Error Messege", messege: "please make sure your email is vaildate")
+           return  errorMesseges(title: "Email Vaildation", messege: "please make sure your email is vaildate")
         }
         guard Extentions.isValidPhone(phoneNumber) else {
-            return  errorMesseges(title: "Error Messege", messege: "please make sure your phone number is vaildate")
+            return  errorMesseges(title: "Phone Correct", messege: "please make sure your phone number is contain the ")
         }
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             guard authResult != nil, error == nil else{
-                return self.errorMesseges(title: "Error Messege", messege: "There is a problem in creating user please try agine ")
+                return self.errorMesseges(title: "Creation Failed", messege: "There is a problem in creating user please try agine ")
             }
             self.updateUserName(firstName: firstName)
-//          self.dismiss(animated: true, completion: nil)
         }
-      
-//          KeychainWrapper.standard.set(email, forKey: "user_email")
-//          KeychainWrapper.standard.set(password, forKey: "user_password")
     }
     func updateUserName(firstName: String){
         if let user = Auth.auth().currentUser{

@@ -20,10 +20,9 @@ class HomeViewController: UIViewController {
         signotImage.layer.masksToBounds = true
         return signotImage
     }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .white
         view.addSubview(signotImage)
         signoutPressed()
     }
@@ -41,7 +40,7 @@ extension HomeViewController{
             try firebaseAuth.signOut()
             signotImage.addTarget(self, action: #selector(didSignOutPressed), for: .touchUpInside)
         } catch {
-            errorMesseges(title: "Error Messege", messege: "Error signing out")
+            errorMesseges(title: "SignOut", messege: "Error signing out")
         }
     }
     @objc func didSignOutPressed(){
@@ -50,6 +49,7 @@ extension HomeViewController{
         vc.modalTransitionStyle = .coverVertical
         present(vc, animated: true)
     }
+
 }
 //MARK: - to display error messeges
 extension HomeViewController{

@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
     
     private let wellcomeLabel: UILabel = {
         let wellcomeLabel = UILabel()
-        wellcomeLabel.frame = CGRect(x: 56, y: 250, width: 200, height: 29)
+        wellcomeLabel.frame = CGRect(x: 56, y: 150, width: 200, height: 29)
         wellcomeLabel.text = "Wellcome Back"
         wellcomeLabel.font = .systemFont(ofSize: 23, weight: .semibold)
         return wellcomeLabel
@@ -94,13 +94,19 @@ class LoginViewController: UIViewController {
     private  let signupLabel: UILabel = {
         let signupLabel = UILabel()
         signupLabel.text = "Sign up"
+        signupLabel.font = .systemFont(ofSize: 15, weight: .heavy)
+        return signupLabel
+    }()
+    private  let signUpLabel: UILabel = {
+        let signupLabel = UILabel()
+        signupLabel.text = "Don't have an account yet? "
         signupLabel.font = .systemFont(ofSize: 15, weight: .light)
         return signupLabel
     }()
     private let forgetPasswordLabel: UIButton = {
         let forgetPasswordLabel = UIButton()
         forgetPasswordLabel.setTitle("Forget Password", for: .normal)
-        forgetPasswordLabel.titleLabel?.font = .systemFont(ofSize: 15, weight: .light)
+        forgetPasswordLabel.titleLabel?.font = .systemFont(ofSize: 10, weight: .light)
         forgetPasswordLabel.setTitleColor(.black, for: .normal)
         forgetPasswordLabel.isExclusiveTouch = false
         return forgetPasswordLabel
@@ -110,16 +116,18 @@ class LoginViewController: UIViewController {
         super.viewDidLayoutSubviews()
         scrollView.frame = view.bounds
         let size = view.width / 3
-        scrollView.contentSize = CGSize(width: view.frame.size.width, height: view.frame.size.height - 50)
+        scrollView.contentSize = CGSize(width: view.frame.size.width, height: view.frame.size.height - 190 )
+        wellcomeLabel.frame = CGRect(x: view.left + 30, y: 150, width: view.width - 89, height: 40)
         skipImage.frame = CGRect(x: view.right - 30, y: 60, width: 20, height: 20)
-        profileImage.frame = CGRect(x:( view.width - size) / 2, y: 381, width: size, height: size)
+        profileImage.frame = CGRect(x:( view.width - size) / 2, y: 250, width: size, height: size)
         profileImage.layer.cornerRadius = profileImage.width / 2
         emailTextField.frame = CGRect(x: view.left + 30, y: profileImage.bottom + 30, width: view.width - 60, height: 35)
         passwordTextField.frame = CGRect(x: view.left + 30, y: emailTextField.bottom + 20, width: view.width - 60, height: 35)
-        signinLabel.frame = CGRect(x: view.left + 47, y: passwordTextField.bottom + 40, width: view.width - 89, height: 29)
-        signinButton.frame = CGRect(x: view.right - 100, y: passwordTextField.bottom + 30, width: 50, height: 50)
-        signupLabel.frame = CGRect(x: view.left + 47, y: signinLabel.bottom + 20, width: view.width - 89, height: 29)
-        forgetPasswordLabel.frame = CGRect(x: view.right - 252, y: signinLabel.bottom + 20, width: view.width - 89, height: 29)
+        signinLabel.frame = CGRect(x: view.left + 47, y: passwordTextField.bottom + 60, width: view.width - 89, height: 29)
+        signinButton.frame = CGRect(x: view.right - 100, y: passwordTextField.bottom + 50, width: 50, height: 50)
+        signUpLabel.frame = CGRect(x: (( view.width) / 2) - 130, y: signinLabel.bottom + 20, width: 200, height: 29)
+        signupLabel.frame = CGRect(x: signUpLabel.left + 190 , y: signinLabel.bottom + 20, width: 70, height: 29)
+        forgetPasswordLabel.frame = CGRect(x: view.right - 130, y: passwordTextField.bottom + 3, width:  89, height: 20)
     }
     
     override func viewDidLoad() {
@@ -149,6 +157,7 @@ class LoginViewController: UIViewController {
         scrollView.addSubview(signinLabel)
         scrollView.addSubview(signinButton)
         scrollView.addSubview(signupLabel)
+        scrollView.addSubview(signUpLabel)
         scrollView.addSubview(forgetPasswordLabel)
         
         emailTextField.delegate = self
@@ -159,10 +168,10 @@ class LoginViewController: UIViewController {
         super.viewDidAppear(animated)
         if let userEmail = UserDefaults.standard.value(forKey: Constent.KUserEmail) as? String {
             emailTextField.text = userEmail
-            let userPassword = KeychainPasswordItem(service: KeychainConfigration.serviceName, account: userEmail, accessGroup: KeychainConfigration.accessGroup)
-            if let password = try! userPassword.readPassword() as? String {
-                passwordTextField.text = password
-            }
+//            let userPassword = KeychainPasswordItem(service: KeychainConfigration.serviceName, account: userEmail, accessGroup: KeychainConfigration.accessGroup)
+//            if let password = try! userPassword.readPassword() as? String {
+//                passwordTextField.text = password
+//            }
         }
     }
     
@@ -172,14 +181,14 @@ class LoginViewController: UIViewController {
         passwordTextField.resignFirstResponder()
         
         guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !email.isEmpty, !password.isEmpty else{
-            return errorMesseges(title: "Error Messege", messege: "Please fill the requierd fields don't left them empty.")
+            return errorMesseges(title: "Empty Fields", messege: "Please fill the requierd fields don't left them empty.")
         }
         authenticateUserWithEmail(email: email, password: password)
     }
     func authenticateUserWithEmail(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             guard let _ = authResult, error == nil else {
-                return self.errorMesseges(title: "Error Messege", messege: "Failed to log in user with email: \(email). ")
+                return self.errorMesseges(title: "Creation Failed", messege: "Failed to log in user with email: \(email). ")
             }
             //use the keychain to save the password and the userDefult for first and last name
             if UserDefaults.standard.value(forKey: Constent.KUserEmail) == nil{
@@ -194,15 +203,14 @@ class LoginViewController: UIViewController {
                     print("Error updating keychain: \(error.localizedDescription)")
                 }
             }
-            self.goToOtherPage(vc: HomeViewController())
+            self.goToOtherPage(vc: TabBarViewController())
         }
     }
 }
 //MARK: - go to the other page
 extension LoginViewController{
     @objc private func didSkipButton(){
-        print("work")
-        goToOtherPage(vc: HomeViewController())
+        goToOtherPage(vc: TabBarViewController())
     }
     @objc private func didSignupPreassed(){
         goToOtherPage(vc: RegisterViewController())

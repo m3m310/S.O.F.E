@@ -12,7 +12,6 @@
 		B04AF48F2510FB54002D90EB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AF48E2510FB54002D90EB /* HomeViewController.swift */; };
 		B04AF49125111B8D002D90EB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AF49025111B8D002D90EB /* RegisterViewController.swift */; };
 		B04AF49325111E3C002D90EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04AF49225111E3C002D90EB /* LoginViewController.swift */; };
-		B04BB66B25139BC10019BF9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B04BB66A25139BC10019BF9B /* GoogleService-Info.plist */; };
 		B04BB66D2513C8110019BF9B /* KeyChainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04BB66C2513C8110019BF9B /* KeyChainPasswordItem.swift */; };
 		B04BB6712513C9F40019BF9B /* KeychainConfigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04BB6702513C9F40019BF9B /* KeychainConfigration.swift */; };
 		B04BB6732513E5790019BF9B /* Constent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04BB6722513E5790019BF9B /* Constent.swift */; };
@@ -23,6 +22,7 @@
 		B04D07B3250E4BBC00100D1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B04D07B2250E4BBC00100D1F /* Assets.xcassets */; };
 		B04D07B6250E4BBC00100D1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B04D07B4250E4BBC00100D1F /* LaunchScreen.storyboard */; };
 		B04D07C2250E907100100D1F /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04D07C1250E907100100D1F /* Extentions.swift */; };
+		B0A86E43251635A800B55B6A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0A86E42251635A800B55B6A /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,6 @@
 		B04AF48E2510FB54002D90EB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		B04AF49025111B8D002D90EB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = SOURCE_ROOT; };
 		B04AF49225111E3C002D90EB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		B04BB66A25139BC10019BF9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B04BB66C2513C8110019BF9B /* KeyChainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyChainPasswordItem.swift; path = "S.O.F.E/Support Files/KeyChainPasswordItem.swift"; sourceTree = SOURCE_ROOT; };
 		B04BB6702513C9F40019BF9B /* KeychainConfigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfigration.swift; sourceTree = SOURCE_ROOT; };
 		B04BB6722513E5790019BF9B /* Constent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constent.swift; path = S.O.F.E/Constent.swift; sourceTree = SOURCE_ROOT; };
@@ -43,6 +42,7 @@
 		B04D07B5250E4BBC00100D1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B04D07B7250E4BBC00100D1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B04D07C1250E907100100D1F /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		B0A86E42251635A800B55B6A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CA177AE24D57021750E5EA8F /* Pods-S.O.F.E.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S.O.F.E.release.xcconfig"; path = "Target Support Files/Pods-S.O.F.E/Pods-S.O.F.E.release.xcconfig"; sourceTree = "<group>"; };
 		CEA9750F416D3D4DAB065C7C /* Pods-S.O.F.E.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-S.O.F.E.debug.xcconfig"; path = "Target Support Files/Pods-S.O.F.E/Pods-S.O.F.E.debug.xcconfig"; sourceTree = "<group>"; };
 		F47B6312A5BED5C1F5EA9DB5 /* Pods_S_O_F_E.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_S_O_F_E.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,9 +118,9 @@
 				B04BB66E2513C8280019BF9B /* Support Files */,
 				B0480E11250F7839004BC5F3 /* Controller */,
 				B04BB66F2513C86B0019BF9B /* Views */,
-				B04BB66A25139BC10019BF9B /* GoogleService-Info.plist */,
 				B04D07B7250E4BBC00100D1F /* Info.plist */,
 				B04D07AF250E4BB700100D1F /* S_O_F_E.xcdatamodeld */,
+				B0A86E42251635A800B55B6A /* GoogleService-Info.plist */,
 			);
 			path = S.O.F.E;
 			sourceTree = "<group>";
@@ -171,7 +171,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
-				LastUpgradeCheck = 1170;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = S.O.F.E;
 				TargetAttributes = {
 					B04D07A2250E4BB700100D1F = {
@@ -203,7 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B04D07B6250E4BBC00100D1F /* LaunchScreen.storyboard in Resources */,
-				B04BB66B25139BC10019BF9B /* GoogleService-Info.plist in Resources */,
+				B0A86E43251635A800B55B6A /* GoogleService-Info.plist in Resources */,
 				B04D07B3250E4BBC00100D1F /* Assets.xcassets in Resources */,
 				B04D07AE250E4BB700100D1F /* Main.storyboard in Resources */,
 			);
@@ -320,6 +320,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -344,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -380,6 +381,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -398,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

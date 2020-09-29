@@ -43,7 +43,7 @@ class Extentions{
         return emailPred.evaluate(with: email)
     }
     static func isValidPhone(_ phoneNumber: String) -> Bool {
-        let regularExpressionForPhone = "^\\d{3}-\\d{3}-\\d{4}$"
+        let regularExpressionForPhone = "^\\+(?:[0-9]?){6,14}[0-9]$"
         let testPhone = NSPredicate(format:"SELF MATCHES %@", regularExpressionForPhone)
         return testPhone.evaluate(with: phoneNumber)
     }
